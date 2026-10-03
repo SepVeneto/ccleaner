@@ -1,0 +1,35 @@
+{
+  "name": "disk-sweeper",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "C 盘清理助手：目录大小可视化分析 + 安全清理",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "check:treemap": "esbuild scripts/treemap-check.ts --bundle --platform=node --format=esm --outfile=/tmp/treemap-check.mjs --log-level=error && node /tmp/treemap-check.mjs",
+    "preview": "vite preview",
+    "tauri": "tauri",
+    "tauri:dev": "tauri dev",
+    "tauri:build": "tauri build",
+    "build:win": "node scripts/build-windows.mjs",
+    "build:win:check": "node scripts/build-windows.mjs --check",
+    "build:win:nsis": "tauri build --bundles nsis",
+    "build:win:msi": "tauri build --bundles msi"
+  },
+  "dependencies": {
+    "@tauri-apps/api": "^2.9.0",
+    "@tauri-apps/plugin-dialog": "^2.4.0",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0"
+  },
+  "devDependencies": {
+    "@tauri-apps/cli": "^2.9.0",
+    "@types/node": "^26.6.4",
+    "@types/react": "^19.2.0",
+    "@types/react-dom": "^19.2.0",
+    "@vitejs/plugin-react": "^5.0.4",
+    "typescript": "^5.9.3",
+    "vite": "^7.1.9"
+  }
+}
